@@ -117,6 +117,7 @@ def objectmotion_net(image_stack, disp_bottleneck_stack, joint_encoder,
   num_egomotion_vecs = seq_length - 1
   with tf.variable_scope('pose_exp_net') as sc:
     end_points_collection = sc.original_name_scope + '_end_points'
+    print(weight_reg)
     with slim.arg_scope([slim.conv2d, slim.conv2d_transpose],
                         normalizer_fn=None,
                         weights_regularizer=slim.l2_regularizer(weight_reg),
