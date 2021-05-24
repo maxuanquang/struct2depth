@@ -36,6 +36,32 @@ STEPSIZE = 1
 INPUT_DIR = '/content/drive/MyDrive/Dự án/KITTI Dataset/Raw Data'
 OUTPUT_DIR = '/content/drive/MyDrive/Dự án/KITTI Dataset/KITTI Wild'
 
+processed = [
+"2011_09_26_drive_0001_sync",
+"2011_09_26_drive_0002_sync",
+"2011_09_26_drive_0005_sync",
+"2011_09_26_drive_0009_sync",
+"2011_09_26_drive_0011_sync",
+"2011_09_26_drive_0013_sync",
+"2011_09_26_drive_0014_sync",
+"2011_09_26_drive_0015_sync",
+"2011_09_26_drive_0017_sync",
+"2011_09_26_drive_0018_sync",
+"2011_09_26_drive_0019_sync",
+"2011_09_26_drive_0020_sync",
+"2011_09_26_drive_0022_sync",
+"2011_09_26_drive_0023_sync",
+"2011_09_26_drive_0027_sync",
+"2011_09_26_drive_0028_sync",
+"2011_09_26_drive_0029_sync",
+"2011_09_26_drive_0032_sync",
+"2011_09_26_drive_0035_sync",
+"2011_09_26_drive_0036_sync",
+"2011_09_26_drive_0039_sync",
+"2011_09_26_drive_0046_sync",
+"2011_09_26_drive_0048_sync",
+]
+
 
 def get_line(file, start):
     file = open(file, 'r')
@@ -96,6 +122,8 @@ for d in glob.glob(INPUT_DIR + '/*/'):
 
     for d2 in glob.glob(d + '*/'):
         seqname = d2.split('/')[-2]
+        if seqname in processed:
+            continue
         print('Processing sequence', seqname)
         for subfolder in ['image_02/data', 'image_03/data']:
             ct = 1
